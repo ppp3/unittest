@@ -18,13 +18,34 @@ class SomeClass
         {
             return i;
         }
+
+        int add(int i, int j)
+        {
+            return(i + j);
+        }
+
+        int getA()
+        {
+            return a;
+        }
+
+    private:
+        int a;
+
 };
 
 class SomeMockedClass : public SomeClass
 {
 public:
+    //alter Version
     MOCK_METHOD0(someMethod, void());
     MOCK_METHOD1(otherMethod, int(int));
+    MOCK_METHOD1(otherMethod, int(int));
+    MOCK_METHOD2(add, int(int, int));
+    //MOCK_CONST_METHOD0(get, int, ());
+
+    // Neue Version
+    //MOCK_METHOD(int, add, (int, int));
 
 };
 
